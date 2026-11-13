@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-page: #F7F2E7;
+  --bg-section: #EFE7D6;
+  --bg-card: #FCF9F2;
+  --text-primary: #23332F;
+  --text-muted: #5B6B65;
+  --border-soft: #DFD5C3;
+}
+
+html.dark {
+  --bg-page: #15211E;
+  --bg-section: #1C2B28;
+  --bg-card: #22332F;
+  --text-primary: #F4EFE6;
+  --text-muted: #B2C0BB;
+  --border-soft: #314742;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.storybook-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 30px -8px rgba(35, 51, 47, 0.12);
+}
+
+html.dark .storybook-card {
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.45);
+}
+
+/* Utilitas Kedalaman 3D */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.z-layer-1 {
+  transform: translateZ(20px);
+}
+
+.z-layer-2 {
+  transform: translateZ(38px);
+}
+
+.z-layer-3 {
+  transform: translateZ(58px);
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateZ(52px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(52px) translateY(-8px);
+  }
+}
+
+@keyframes float3DDelayed {
+  0%, 100% {
+    transform: translateZ(58px) translateY(0px);
+  }
+  50% {
+    transform: translateZ(58px) translateY(7px);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 4.5s ease-in-out infinite;
+}
+
+.animate-float-3d-delayed {
+  animation: float3DDelayed 5.2s ease-in-out infinite;
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.35s ease-out forwards;
+}
